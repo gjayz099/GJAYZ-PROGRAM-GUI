@@ -1,7 +1,10 @@
 #CALCULATOR BY:GJAYZ
 
+import sys
 from tkinter import *
+from tkinter import messagebox
 
+#winDows
 Calculator = Tk()
 Calculator.geometry()
 Calculator.title("Calculator By:Gjayz")
@@ -32,6 +35,11 @@ def btnEquals():
     text_Input.set(sumup)
     operator = ""
 
+def Exit():
+    QExit = messagebox.askyesno("ARE U SURE", "Do you what to exit the system")
+    if QExit > 0:
+        sys.exit()
+
 #ENTRY
 txtDisplay = Entry(Calculator_Function, width=25, bg="white", bd=4, font=("arial",20,"bold"), justify=RIGHT, textvariable=text_Input)
 txtDisplay.grid(row=0,column=0,columnspan=4,pady=1)
@@ -46,6 +54,7 @@ b9=Button(Calculator_Function,padx=16,pady=1,bd=7,fg="snow", font=('arial', 12, 
 b9.grid(row=2,column=2)
 bAdd=Button(Calculator_Function,padx=16,pady=1,bd=7,fg="snow", font=('arial', 12, 'bold'), width=3, text="+",bg="gray25",command=lambda:btnClick('+'))
 bAdd.grid(row=2,column=3)
+
 #CALCULATOR BUTTONS
 b4=Button(Calculator_Function,padx=16,pady=1,bd=7,fg="snow", font=('arial', 12, 'bold'), width=3, text="4",bg="gray25",command=lambda:btnClick(4))
 b4.grid(row=3,column=0)
@@ -55,6 +64,7 @@ b6=Button(Calculator_Function,padx=16,pady=1,bd=7,fg="snow", font=('arial', 12, 
 b6.grid(row=3,column=2)
 bSub=Button(Calculator_Function,padx=16,pady=1,bd=7,fg="snow", font=('arial', 12, 'bold'), width=3, text="-",bg="gray25",command=lambda:btnClick('-'))
 bSub.grid(row=3,column=3)
+
 #CALCULATOR BUTTONS
 b1=Button(Calculator_Function,padx=16,pady=1,bd=7,fg="snow", font=('arial', 12, 'bold'), width=3, text="1",bg="gray25",command=lambda:btnClick(1))
 b1.grid(row=4,column=0)
@@ -62,8 +72,9 @@ b2=Button(Calculator_Function,padx=16,pady=1,bd=7,fg="snow", font=('arial', 12, 
 b2.grid(row=4,column=1)
 b3=Button(Calculator_Function,padx=16,pady=1,bd=7,fg="snow", font=('arial', 12, 'bold'), width=3, text="3",bg="gray25",command=lambda:btnClick(3))
 b3.grid(row=4,column=2)
-bMulti=Button(Calculator_Function,padx=16,pady=1,bd=7,fg="snow", font=('arial', 12, 'bold'), width=3, text="*",bg="gray25",command=lambda:btnClick('*'))
+bMulti=Button(Calculator_Function,padx=16,pady=1,bd=7,fg="snow", font=('arial', 12, 'bold'), width=3, text="x",bg="gray25",command=lambda:btnClick('*'))
 bMulti.grid(row=4,column=3)
+
 #CALCULATOR BUTTONS
 b0=Button(Calculator_Function,padx=16,pady=1,bd=7,fg="snow", font=('arial', 12, 'bold'), width=3, text="0",bg="gray25",command=lambda:btnClick(0))
 b0.grid(row=5,column=0)
@@ -71,8 +82,18 @@ bClear=Button(Calculator_Function,padx=16,pady=1,bd=7,fg="snow", font=('arial', 
 bClear.grid(row=5,column=1)
 bEqual=Button(Calculator_Function,padx=16,pady=1,bd=7,fg="snow", font=('arial', 12, 'bold'), width=3, text="=",bg="gray25",command=btnEquals)
 bEqual.grid(row=5,column=2)
-bDiv=Button(Calculator_Function,padx=16,pady=1,bd=7,fg="snow", font=('arial', 12, 'bold'), width=3, text="/",bg="gray25",command=lambda:btnClick('/'))
+bDiv=Button(Calculator_Function,padx=16,pady=1,bd=7,fg="snow", font=('arial', 12, 'bold'), width=3, text="/",bg="gray25",command=lambda:btnClick("/"))
 bDiv.grid(row=5,column=3)
+
+#CALCULATOR BUTTONS
+bModulus=Button(Calculator_Function,padx=16,pady=1,bd=7,fg="snow", font=('arial', 12, 'bold'), width=3, text="%",bg="gray25",command=lambda:btnClick('%'))
+bModulus.grid(row=6,column=0)
+bExpon=Button(Calculator_Function,padx=16,pady=1,bd=7,fg="snow", font=('arial', 12, 'bold'), width=3, text="xx",bg="gray25",command=lambda:btnClick('**'))
+bExpon.grid(row=6,column=1)
+bFdivision=Button(Calculator_Function,padx=16,pady=1,bd=7,fg="snow", font=('arial', 12, 'bold'), width=3, text="//",bg="gray25",command=lambda:btnClick('//'))
+bFdivision.grid(row=6,column=2)
+bExit=Button(Calculator_Function,padx=16,pady=1,bd=7,fg="snow", font=('arial', 12, 'bold'), width=3, text="Exit",bg="gray25",command=Exit)
+bExit.grid(row=6,column=3)
 
 #LOOPS
 Calculator.mainloop()
